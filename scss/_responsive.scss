@@ -1,0 +1,135 @@
+//breakpoint"xlg" max-width:1280px-->RaiseTechロゴ消す
+.header-left a span {
+    @include mq(xlg){
+    display: none; 
+    }
+}
+
+//breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換
+.header{
+   @include mq(lg){
+    height: 50px;  
+   }}
+
+.header-left a {
+    @include mq(lg){
+        margin: 10px;
+        height: 30px; 
+        padding: 0; 
+       }
+       img{
+        @include mq(lg){
+            width: 160px;
+            height: 30px; 
+           }
+       }
+   }
+
+.header-right .global-nav{
+    @include mq(lg){
+        display: none;
+       }
+}
+
+.p-hamburger{
+    @include mq(lg){
+        display: block; //ハンバーガーメニュー現れる
+       }
+}
+
+.main{
+    @include mq(lg){
+        padding-top: 50px;  
+       }
+}
+
+//breakpoint"md": "max-width:1078px"--> recommendationの余白が変わる//未完成！！
+.recommendation-wrapper{
+    @include mq(md){
+        margin: 0 10px; 
+       }
+}
+
+.recommendation{
+    @include mq(md){
+        width: 29.33%;
+        margin: 0 2%;
+    }
+}
+.recommendation-icon{
+   @include mq(md){
+        margin: auto;
+    }
+}
+
+//breakpoint"sm": "max-width:767px"--> スマホ、縦並び 未完成!!
+.MainTop{
+    @include mq(sm){
+        height: 300px;
+        padding-bottom: 320px;
+        background-position: -25px;
+    }
+}
+
+.MainTop__layer1{
+    @include mq(sm){
+        background-size: cover;
+        align-items: flex-end;
+        background-position-x: center;
+        background-position-y: -30px;
+    }
+}
+
+.main-concept{
+    @include mq(sm){
+        width: 100%;
+        max-width: 100%;
+        padding: 9px 0 13px;
+        border-radius: 0;
+    }
+    & .main-concept-title img{
+        @include mq(sm){
+        display: none;  
+        }
+    }
+    p{
+        @include mq(sm){
+            margin: 0.5 em 0 ;
+            font-size: 1.3rem;
+            }
+    }      
+    }
+
+    .MainTop__layer2{
+        @include mq(sm){
+            background-size: cover;
+            background-position-x:center ;
+            background-position-y:-25px;
+            }
+    }
+
+    .recommendation-wrapper{
+        @include mq(sm){
+            margin-top: 0;
+            flex-direction: column;
+            align-items: center;
+            }
+    }
+    .recommendation{
+        margin-bottom: 2.5rem;
+        width: auto;
+    }
+
+
+
+
+
+      
+          
+ 
+  
+ 
+
+
+
+

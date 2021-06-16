@@ -1,0 +1,57 @@
+/*recommend-----------------------------------------------
+-----------------------------------------------------------*/
+
+.black-section{
+    display: block;
+    background-color:$third-black;
+    //padding-bottom: 50px;
+    padding: 4em 0;
+    z-index: 30; 
+} 
+
+.recommendation-wrapper{
+    //position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: -130px;//marginマイナス指定可能
+    z-index: 40;
+    
+    .recommendation{
+        margin: 0px 50px;
+        width: 229px;
+        text-align: center;
+        z-index: 40;
+    
+        .recommendation-icon{
+            width:230px;
+            height: 230px;
+            background-color:$main-white;
+            border: solid 6px $third-black;
+            border-radius: 50%; //icon丸く円にする
+            //align-items: center;
+            //justify-content: center;
+    
+            & i {
+                font-size: 100px;
+                width: 125px;
+                line-height: 230px; //fontawsomeを上下中央に配置
+                //text-align: center;
+                }
+            }
+
+        .recommendation-title{
+            color:$main-white;
+            font-size: 2.4rem;
+            font-weight: 700; //反応しない？fontの種類のせい？
+            margin-top: 0.2em 0 0 0;
+            }
+
+        .recommendation-text{
+            color: $main-white;
+            text-align: left;
+            margin: 0.5em 0 0 0;
+            font-size: 1.6rem;
+            font-weight: 700;//反応しない？fontの種類のせい？
+            }
+        }
+    }
