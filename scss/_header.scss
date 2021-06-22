@@ -4,38 +4,52 @@
 .header{
     background-color:$main-white;
     width: 100%;
-    height: 70px;
+    //height: 70px;
     z-index: 200; /*ボックスの重なりの順序を指定する/0を基準として、値が大きいものほど上/初期値auto=親要素と同じ階層*/
     position: fixed;
     display: flex;
     justify-content: space-between;
     top: 0;
     left: 0;
+    @include mq(lg){ //breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換/heightーsize変わる
+        height: 50px;  
+       }
     
     }
+
 //header-left
 .header-left{
-        margin-left: 6px;
-        width: 160px;
-        text-align: left;
-        font-size: 1.6rem;
+    margin-left: 6px;
+    width: 160px;
+    text-align: left;
+    font-size: 1.6rem;
             
     & a {
-            display: flex;
-            height: 70px;
-            line-height: 1.3;
-            //font-size: 1.6rem;
-            text-decoration-line: none;
-            align-content: center;
-            align-items: center;
-            white-space: nowrap; /*white-space=ソース中のホワイトスペース（連続する半角スペース・タブ）の表示/改行の表示方法
-            nowrap=ソース中のホワイトスペースを無視,ソース中の改行を1つの半角スペースとして表示,ボックスサイズが指定されている場合にも自動改行しない*/
-            padding-left: 15px;
+        display: flex;
+        height: 70px;
+        line-height: 1.3;
+        //font-size: 1.6rem;
+        text-decoration-line: none;
+        align-content: center;
+        align-items: center;
+        white-space: nowrap; /*white-space=ソース中のホワイトスペース（連続する半角スペース・タブ）の表示/改行の表示方法
+        nowrap=ソース中のホワイトスペースを無視,ソース中の改行を1つの半角スペースとして表示,ボックスサイズが指定されている場合にも自動改行しない*/
+        padding-left: 15px;
+
+        @include mq(lg){ //breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換/header-leftサイズ縮小
+            margin: 10px;
+            height: 30px; 
+            padding: 0; 
+            }
 
             img {
                 vertical-align: middle;
                 height: 33px ;
                 width: auto;
+                @include mq(lg){ //breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換/imgサイズ縮小
+                    width: 160px;
+                    height: 30px; 
+                   }
             }
             
             span {
@@ -43,79 +57,243 @@
             font-weight:900;
             color: $first-black;
             margin-left: 16px;
-            
+                @include mq(xlg){ //breakpoint"xlg" max-width:1280px-->ロゴ横span消す
+                display: none; 
+                }
+            }
                 strong{
                     font-size: 1.8rem;
                     font-weight: bolder;
                     }
-            }
         }
-    }
-
+    }  
 
 //header-right
 .header-right{
     font-weight: 700;
-        
+    //line-height: 70px;   
     .global-nav{
-        display: flex;
-        height: 70px;
-        line-height: 70px;
-        align-items: center;
+        //display: flex;
+        display: block;
+        //height: 70px;
+        //line-height: 70px;
+        //align-items: center;
+
+        @include mq(lg){ //breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換/メニュー非表示
+            display: none;
+           }
         
         .main-nav{
             display: flex;
-            height: 70px;
+            //height: 70px;
             list-style-type: none;
-            text-align: left;
+            //text-decoration: none;//add
+            //text-align: left;
             padding:0;
             margin:0;    
           
             & .main-nav-menu {
                 position: relative;
                 white-space: nowrap;
+                //align-items: center;//add
         
-                & a { //font-weight: 700;
-                    text-decoration: none;
+                & a { 
+                    //font-weight: 700;
+                    //text-decoration: none;
+                    height: 70px; //add
                     font-size: 1.6rem;
                     color: $first-black;
                     padding: 0 15px;
-                    //align-items: center;
+                    align-items: center; //add
                     display: flex;
-                    min-height: 70px;
+                    //min-height: 70px;
                     }
 
-            .menu-btn{
-            background-color: $dark-blue;
-            color: $main-white;
-                }
+                    .menu-btn{
+                    background-color: $dark-blue;
+                    color: $main-white;
+                    }
                
-            &:hover{
-            background-color:$hover-blue; //カーソル当てると色が変わる
-                }
+                    & a:hover{
+                        background-color:$hover-blue; //カーソル当てると色が変わる  
+                        }
+                    &:nth-child(7):hover > a{
+                        background-color: $dark-blue;
+                    }
+                }        
+            
             }
-        }
-
 
         .sub-nav {
             display: none;
             position: absolute;
-            list-style-type: none;
-            background-color:$sub-lightblue; 
+            //list-style-type: none;
+            //background-color:$sub-lightblue; 
             top: 70px;
             left: 0;
+            z-index: 99;
+            //margin:0;
+            //padding: 0;
     
             .sub-nav-menu {
-  
-                a {
+                font-weight: 400;
+                background-color:$sub-lightblue;
+                position: relative;//add
+                white-space: nowrap;//add
+                a { 
+                    position: relative; //add
+                    padding: 15px 60px 15px 15px; //add
+                    height: auto; //add
+                    display: flex;//add
+                    align-items: center;//add
                     font-family: sans-serif;
                     font-weight: 400;  //fontstyle解除しないと反映されない
                     &:hover{
-                        background-color:$main-white;
                         color: $dark-blue;
+                        background-color:$main-white; 
                         }
                 }
             }
         }
     }
 }
+
+
+///////ハンバーガーボタンクリック→メニュー開いた時のスタイリング
+.global-nav.is-open{
+    @include mq(lg){
+    display: block; //これ忘れると、display:noneになってしまう！！注意！！
+    position: absolute;//add
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    //height: auto; //add
+    background-color: $main-white;
+    }
+
+        .main-nav {
+            @include mq(lg){
+            -webkit-box-orient: vertical;//add
+            -webkit-box-direction: normal; //add
+            transition: all 0.2s;
+            //width         : 100vw;
+            height        : auto;
+            //position      : fixed;
+            //top           : 50px;
+            //background-color: $main-white;
+            display       : flex;
+            flex-direction: column;
+            //align-items   : left;
+            z-index       : 99;
+            //overflow-y    : auto;
+            //left: 0; 
+            }
+
+            .main-nav-menu {
+                @include mq(lg){
+                position: relative;//add
+                white-space: nowrap;//add
+                &:last-of-type{
+                display: none; //"受講お申し込み"非表示
+                }
+            }
+
+                & a{
+                    @include mq(lg){
+                    display: flex; //add
+                    -webkit-box-align: center;//add
+                    align-items: center;//add
+                    position: relative;//add
+                    height: auto;//add→これするとリストの高さが文字の高さに合わさる
+                    padding: 10px 10px 10px 15px;//add→padding加えることで文字と高さの幅を調整
+            
+                    &:hover{
+                    background-color: $hamburger-blue;
+                    } 
+                }
+            }
+
+                    & .sub-nav{
+                        @include mq(lg){
+                        display: none;
+                        transition: all 0.2;
+                        position: static;//add→static入れたらsublistがmainlistに被らなくなった！！
+                        z-index: 99;
+                            //width         : 100vw;
+                            //height        : auto;
+                            //background-color: $main-white;
+                            //flex-direction: column;
+                            //display       : flex;
+                            //align-items   : left;
+                            //overflow-y    : auto;
+                            //left: 0;
+                        }
+
+                        & .sub-nav-menu {
+                            @include mq(lg){
+                            background-color: $main-white;
+                            font-weight: 400;
+                            }
+                            >a {
+                            @include mq(lg){
+                            padding: 10px 10px 10px 25px;
+                            position: relative;
+                            height: auto;
+
+                                &:hover{
+                                    color:$first-black;
+                                    background-color: $hamburger-blue; 
+                                    }
+                                }
+                            }//sub-nav a
+                        }//sub-nav-menu
+                    } //sub-nav    
+                    
+            }//main-nav-menu
+        } //main-nav
+} //is-open,global-nav
+
+
+///////＋−ボタン作り////////
+.main-nav-menu >a::before{   //横の線
+    @include mq(lg){
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 12px; 
+    content: ""; 
+    width: 25px; 
+    height: 2px; 
+    background-color: $second-black;
+    }
+}
+
+.main-nav-menu:hover >a::after { //hoverした時に縦の線消す
+    display: none;
+} 
+
+.main-nav-menu>a::after{ //縦の線
+    @include mq(lg){
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 24.5px;
+    content: "";
+    width: 2px;
+    height: 25px;
+    background-color: $second-black;
+    margin-top: -11.5px; 
+    }
+
+}
+.main-nav-menu:nth-of-type(3) { //講師紹介＋−消す
+        > a {
+            &:before {
+                display: none;
+            }
+            &:after {
+                display: none;
+            }
+        }
+    }

@@ -4,32 +4,53 @@
 .black-section{
     display: block;
     background-color:$third-black;
-    //padding-bottom: 50px;
+    padding-bottom: 50px;
     padding: 4em 0;
     z-index: 30; 
-} 
+
 
 .recommendation-wrapper{
-    //position: relative;
+    position: relative;
     display: flex;
     justify-content: center;
-    margin-top: -130px;//marginマイナス指定可能
+    -webkit-box-pack: center;//add
+    margin-top: -240px;//marginマイナス指定可能
     z-index: 40;
+    /*@include mq(md){
+        margin: 0 10px 0 10px; 
+       }*/
+    @include mq(sm){
+        margin-top: 0;
+        flex-direction: column;
+        align-items: center;
+        }
     
     .recommendation{
         margin: 0px 50px;
         width: 229px;
         text-align: center;
         z-index: 40;
+        @include mq(md){
+            width: 29.33%;
+            margin: 0 2%;
+        }
+        @include mq(sm){
+            width: auto;
+            margin-bottom: 2.5rem;
+        }
+            
     
         .recommendation-icon{
+            display: flex;
+            margin: 0px auto;
             width:230px;
             height: 230px;
             background-color:$main-white;
             border: solid 6px $third-black;
             border-radius: 50%; //icon丸く円にする
-            //align-items: center;
-            //justify-content: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
     
             & i {
                 font-size: 100px;
@@ -42,8 +63,8 @@
         .recommendation-title{
             color:$main-white;
             font-size: 2.4rem;
-            font-weight: 700; //反応しない？fontの種類のせい？
-            margin-top: 0.2em 0 0 0;
+            font-weight: 700; //反応しない？fontの種類のせい?
+            margin: 0.2em 0 0 0;
             }
 
         .recommendation-text{
@@ -51,7 +72,8 @@
             text-align: left;
             margin: 0.5em 0 0 0;
             font-size: 1.6rem;
-            font-weight: 700;//反応しない？fontの種類のせい？
+            font-weight: 700;//反応しない
             }
         }
     }
+}

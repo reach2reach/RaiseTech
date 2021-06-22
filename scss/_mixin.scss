@@ -1,6 +1,5 @@
 $breakpoints : (
     "xlg": "screen and (max-width:1280px)", // RaiseTechロゴ文字消す
-    "pc": "screen and (min-width:1200px)",//pcサイズ
     "lg": "screen and (max-width:1200px)", // ハンバーガーメニューに変換
     "md": "screen and (max-width:1078px)", // recommendationの余白が変わる
     "sm": "screen and (max-width:767px)" , // スマホサイズ、縦並び
@@ -9,12 +8,6 @@ $breakpoints : (
 @mixin mq($breakpoint:xlg){
   @media #{map-get($breakpoints, $breakpoint)}{
       @content;
-    }
-}
-
-@mixin mq($breakpoint:pc){
-    @media #{map-get($breakpoints, $breakpoint)}{
-        @content;
     }
 }
 

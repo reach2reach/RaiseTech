@@ -1,11 +1,16 @@
 .p-hamburger{
+    display: none;//add
+    margin-bottom: 0;//add
+    margin-top: 0;//add
     width: 50px;
     height: 50px;
     background-color: $main-white;
     position: relative;
     cursor: pointer;
-    @include mq(pc){
-        display: none;   //pcサイズまでは消す
+    //z-index: 5; //add
+    
+    @include mq(lg){
+        display: block;  //ハンバーガーボタン出現
     }
 
     &::before,
@@ -38,6 +43,7 @@
         transition: transform 0.2s;
     }
 
+
     //ハンバーガーボタンに’is-open’が付与された時のスタイリング//
     &.is-open{
         background-color: $dark-blue;
@@ -57,86 +63,7 @@
     }
 }
 
-//is-openが付与されたときのメニューナビのスタイリング
 
-.is-open .global-nav {
-        .main-nav {
-        transition: all 0.2s;
-		width         : 100vw;
-		height        : auto;
-		position      : fixed;
-		top           : 50px;
-		background-color: $main-white;
-		display       : flex;
-		flex-direction: column;
-		align-items   : left;
-		z-index       : 110;
-		overflow-y    : auto;
-		left: 0;
-        & .main-nav-menu {
-            & :hover{
-            background-color: $hamburger-blue;}
-            &:last-of-type{
-              display: none; //"受講お申し込み"非表示
-            }
 
-            ///////＋ボタン作り////////
-                
-            a{
-                position: relative;
-                &:not(.subnav-none)::before  {
-                    display: block;
-                    position: absolute;
-                    top: 50%;
-                    right: 12px; 
-                    content: ""; 
-                    width: 25px; 
-                    height: 2px; 
-                    background-color: $second-black; 
-                   }
-               
-                
-                &:not(.subnav-none):after {
-                    display: block;
-                    position: absolute;
-                    top: 50%;
-                    right: 24.5px;
-                    content: "";
-                    width: 2px;
-                    height: 25px;
-                    background-color: $second-black;
-                    margin-top: -12.5px; 
-                    }
-                    
-                    &:not(.subnav-none).active::after{
-                        background-color: transparent;
-                    }
-                    
-                    }
-
-                  
-
-        & .sub-nav{
-            transition: all 0.2;
-            position: absolute;
-		    width         : 100vw;
-		    height        : auto;
-		    background-color: $main-white;
-            flex-direction: column;
-		    display       : flex;
-		    align-items   : left;
-		    z-index       : 100;
-		    overflow-y    : auto;
-		    left: 0;
-
-            & .sub-nab-menu a:hover{
-                background-color: $hamburger-blue; //読み込んでない？？？
-            }
-            }
-     
-        }
-    
-    }
-}
     
 
