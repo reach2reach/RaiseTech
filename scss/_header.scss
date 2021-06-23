@@ -5,7 +5,7 @@
     background-color:$main-white;
     width: 100%;
     //height: 70px;
-    z-index: 200; /*ボックスの重なりの順序を指定する/0を基準として、値が大きいものほど上/初期値auto=親要素と同じ階層*/
+    z-index: 200; //ボックスの重なりの順序を指定する/0を基準として、値が大きいものほど上/初期値auto=親要素と同じ階層
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -32,8 +32,8 @@
         text-decoration-line: none;
         align-content: center;
         align-items: center;
-        white-space: nowrap; /*white-space=ソース中のホワイトスペース（連続する半角スペース・タブ）の表示/改行の表示方法
-        nowrap=ソース中のホワイトスペースを無視,ソース中の改行を1つの半角スペースとして表示,ボックスサイズが指定されている場合にも自動改行しない*/
+        white-space: nowrap; //white-space=ソース中のホワイトスペース（連続する半角スペース・タブ）の表示/改行の表示方法
+        //nowrap=ソース中のホワイトスペースを無視,ソース中の改行を1つの半角スペースとして表示,ボックスサイズが指定されている場合にも自動改行しない
         padding-left: 15px;
 
         @include mq(lg){ //breakpoint"lg" max-width:1200px-->ハンバーガーメニューに変換/header-leftサイズ縮小

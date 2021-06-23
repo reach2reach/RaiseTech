@@ -16,9 +16,7 @@
     -webkit-box-pack: center;//add
     margin-top: -240px;//marginマイナス指定可能
     z-index: 40;
-    /*@include mq(md){
-        margin: 0 10px 0 10px; 
-       }*/
+    
     @include mq(sm){
         margin-top: 0;
         flex-direction: column;
